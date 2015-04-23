@@ -1,0 +1,8 @@
+<div class="pos-rlt hide-indicators">
+    <!--<img image-load="{{completion.imageUrl}}" class="w-full" ng-swipe-right="action.swipeRight($event)" ng-swipe-left="action.swipeLeft($event)">-->
+     <carousel>
+         <slide ng-repeat="slide in slides" active="slide._active">
+             <img image-load="{{slide.imageUrl}}" class="w-full">
+         </slide>
+     </carousel>
+</div>

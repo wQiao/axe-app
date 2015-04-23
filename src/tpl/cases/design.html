@@ -1,0 +1,6 @@
+<div class="v-col-xs-2 wrapper-xs p-b-n h-full" >
+    <div class="v-col-xs-item pos-rlt padder-b-xs" ng-repeat="photo in data" >
+        <img image-load="{{::photo.imageUrl}}" previews="data" class="w-full">
+        <div class="pos-abt p-b-xs text-center text-white w-full text-md" style="background: rgba(0,0,0,.5)">{{::photo.tagsName[0]}}</div>
+    </div>
+</div>

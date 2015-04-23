@@ -1,0 +1,46 @@
+<!-- navbar header -->
+<div class="navbar-header text-info light">
+    <div class="btn-group pos-abt p-r-n" dropdown style="z-index: 1000" ng-show="$state.$current.data.showNav">
+        <button  dropdown-toggle><i class="icon icon-nav-web-site"></i></button>
+        <ul class="dropdown-menu" role="menu">
+            <li ui-sref-active="active-state">
+                <a ui-sref="app.cases.view.design">
+                    <span class="pull-right">设计方案</span>
+                    <i class="icon icon-nav-1"></i>
+                </a>
+            </li>
+            <li ui-sref-active="active-state">
+                <a ui-sref="app.cases.view.plan">
+                    <span class="pull-right">施工计划</span>
+                    <i class="icon icon-nav-2"></i>
+                </a>
+            </li>
+            <li ui-sref-active="active-state">
+                <a ui-sref="app.cases.view.scene">
+                    <span class="pull-right">施工场景</span>
+                    <i class="icon icon-nav-3"></i>
+                </a>
+            </li>
+            <li ui-sref-active="active-state">
+                <a ui-sref="app.cases.view.budget">
+                    <span class="pull-right">工程预算</span>
+                    <i class="icon icon-nav-4"></i>
+                </a>
+            </li>
+            <li ui-sref-active="active-state">
+                <a ui-sref="app.cases.view.material">
+                    <span class="pull-right">材料预算</span>
+                    <i class="icon icon-nav-5"></i>
+                </a>
+            </li>
+            <li ui-sref-active="active-state">
+                <a ui-sref="app.cases.view.completion">
+                    <span class="pull-right"> 竣工实景</span>
+                    <i class="icon icon-nav-6"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="navbar-title" ng-bind="$state.$current.data.title"></div>
+</div>
+<!-- / navbar header -->

@@ -1,0 +1,16 @@
+
+<!-- app-header
+<div data-ng-include=" 'tpl/blocks/header.html' " class="app-header navbar"></div>
+-->
+<!-- / app-header -->
+
+<!-- footer -->
+<div data-ng-include=" 'tpl/blocks/footer.html' " class="app-footer" ng-if="app.footer"></div>
+<!-- / footer -->
+
+<!-- content -->
+<div class="app-content" >
+    <div ui-butterbar></div>
+    <div class="app-content-body ade-in-left-big scrollable animated smooth" ui-view></div>
+</div>
+<!-- /content -->

@@ -1,0 +1,30 @@
+<tabset justified="true"  class="nav-tabs-alt-v">
+    <tab ng-repeat="type in types"  heading="{{::type.name}}" select="action.selectType(type)"></tab>
+</tabset>
+<div class="bg-success light panel-banner">
+    <div class="pull-right panel-banner-logo">
+        <i class="icon icon-nav-5-1"></i>
+    </div>
+    <div class="panel-banner-subtitle">
+        <div >{{::caseInfo.title}}</div>
+        <div >{{::caseInfo.company.shortName}}&#160;&#160;{{::caseInfo.designerName}}</div>
+        <div class="title-2" >产品数量 {{result.length}}</div>
+    </div>
+</div>
+<div class="padder-xs fade-in-up">
+    <div class="list-group no-radius no-border m-b-none">
+        <a ng-repeat="item in materials | filter:{ typeCode: selectedType.code} as result" class="list-group-item b-t-none padder-t-xs padder-b-n  padder-r-n padder-l-n m-n no-hover" >
+            <div class="pull-left" style="width: 29.6vw;height: 29.6vw;overflow: hidden">
+                <img image-load="{{::item.imageUrl}}" class="block" style="max-width: 29.6vw;max-height: 29.6vw"  contain="true" equal-width="true">
+            </div>
+            <div class="w-full m-r-sm" style="padding-left: 32vw;font-size: 3.7vw">
+                <div class="text-ellipsis">品&#160;&#160;名：{{::item.title}}</div>
+                <div class="text-ellipsis">品&#160;&#160;牌：{{::item.brand}}</div>
+                <div class="text-ellipsis">型&#160;&#160;号：{{::item.model}}</div>
+                <div class="text-ellipsis">规&#160;&#160;格：{{::item.specification}}</div>
+                <div class="text-ellipsis" style="color: #FD8B0A;font-size: 6vw">{{::item.price | currency:'¥'}}</div>
+            </div>
+            <div class="clearfix"></div>
+        </a>
+    </div>
+</div>

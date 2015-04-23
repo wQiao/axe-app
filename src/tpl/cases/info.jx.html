@@ -1,0 +1,12 @@
+<section class="h-full cases-jx">
+    <ng-include src="'tpl/cases/info.base.html'"></ng-include>
+    <div class="case-design-remark">
+            <p class="title text-center font-bold">设计说明</p>
+            <div class="text-2-i">“{{::caseInfo.designDescription}}”</div>
+    </div>
+    <div class="w-full">
+        <div class="m-xs" ng-repeat="photo in designs" >
+            <img image-load="{{::photo.imageUrl}}" class="r-3x w-full" previews="designs">
+        </div>
+    </div>
+</section>

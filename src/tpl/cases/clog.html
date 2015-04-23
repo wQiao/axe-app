@@ -1,0 +1,17 @@
+<div  class="container-fluid padder-l-n padder-r-n" style="background-color: #d7d7d7" >
+    <section ng-repeat="clog in clogs"  class="bg-white padder-sm padder-v-lg bg-white m-t" >
+        <div class="container padder-l-n padder-r-n">
+            <img ng-src="{{::caseInfo.company.logoUrl}}"  style="max-width: 60px;height:60px" class="pull-left circle m-r">
+            <div  class="m-t-sm m-b-xs l-h-1x" style="font-size: 16px;color:#000000">{{::clog.pubdate | date:'yyyy.MM.dd'}} 日的施工日志</div>
+            <small class="text-muted m-b-sm">{{::clog.images.length}}张照片</small>
+        </div>
+        <div class="text-muted m-t-md m-b-md">{{::clog.content}}</div>
+        <div class="row m-l-none" style="margin-right: -1px">
+            <div ng-repeat="photo in clog.images" class="col-xs-4 no-padder">
+                <div  style="margin: 0 1px 1px 0;padding: 0px;">
+                    <img image-load="{{::photo.imageUrl}}" contain="true"  equal-width="true" previews="clog.images">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

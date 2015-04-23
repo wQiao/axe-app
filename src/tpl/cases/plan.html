@@ -1,0 +1,65 @@
+<div class="container bg-warning light l-h-1">
+    <div class="row text-center">
+        <div class="col-xs-6" style="border-right: 2px solid #ffcc66;padding: 3.8vw 0;">
+            <div style="font-size: 11.11vw">{{sum7}}</div>
+            <div style="font-size: 3.7vw;margin-top: 3vw">硬装工期1-7项（天）</div>
+        </div>
+        <div class="col-xs-6" style="border-left: 2px solid #ffcc66;padding: 3.8vw 0;">
+            <div style="font-size:11.11vw">{{sumAll}}</div>
+            <div style="font-size: 3.7vw;margin-top: 3vw">全部工期1-11项（天）</div>
+        </div>
+    </div>
+</div>
+<section>
+    <ul class="timeline plan l-h-1">
+        <li class="tl-header">
+            <div class="circle bg-warning light" ></div>
+        </li>
+        <li class="tl-item" ng-repeat="plan in plans ">
+            <div class="tl-plan-wrap tl-plan-wrap-circle-point" >
+                <div class="tl-index">
+                    <div class="circle text-warning light b-a serial-number">{{::$index+1}}</div>
+                    <div class="line"></div>
+                    <i class="circle icon icon-s-{{::$index+1}} text-warning light"></i>
+                </div>
+                <div class="tl-content block row m-n">
+                    <div class="col-xs-10 no-padder">
+                        <div>
+                            <span ng-bind="::plan.title" class="pull-left m-r-sm font-bold" ></span>
+                            <progressbar value="plan._percent" type="warning" class="m-b-none r-5x light" ></progressbar>
+                        </div>
+                        <div class="text-muted" style="margin: 3vw 0">
+                            工期<span ng-bind="::plan.period"></span>天 时间占比<span ng-bind="::plan._percent"></span>% 共<span ng-bind="::plan.logCount"></span>篇日志
+                        </div>
+                        <div class="v-col-xs-5" ng-if="plan.images.length > 0"  style="margin: 3vw 0;overflow: hidden;" ng-click="action.viewLogs(plan)">
+                            <div ng-repeat="photo in plan.images track by $index" class="v-col-xs-item">
+                                <img image-load="{{::photo}}" contain="true"  equal-width="true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 text-center" ng-style="{padding: plan.logCount > 0 ? plan.images.length > 0 ? '20% 0 0 0':'3% 0 0 0':'0'}" >
+                    <!--style="width:13.8vw;padding: 4.6vw 3vw"-->
+                        <a ng-if="plan.logCount > 0" ng-click="action.viewLogs(plan)">
+                            <i class="glyphicon glyphicon-menu-right text-2x text-muted"></i>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </li>
+ <!--       <li class="tl-item" >
+            <div class="tl-plan-wrap btn-light padder-b-n padder-t-n b-b-none">
+                <span class="tl-index">
+                    <div class="circle text-warning light b-a text-center inline" style="width: 20px;height: 20px;font-size: 11px;line-height: 1.6">12</div>
+                    <div class="line inline bg-dark" style="width: 10px;margin: 0px"></div>
+                </span>
+                <div class="tl-content padder-b-n">
+                    <span class="pull-left m-r-sm font-bold">工程竣工</span>
+                </div>
+            </div>
+        </li>
+        <li class="tl-foot">
+            <div class="circle bg-warning light" style="width: 1.5em;height: 1.5em;margin-left: 3.25em;margin-bottom: -0.75em"></div>
+        </li> -->
+    </ul>
+</section>

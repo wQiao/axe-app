@@ -1,0 +1,35 @@
+<!--<tabset type="tabs" class="nav-tabs-alt">-->
+<!--<tab ng-repeat="room in rooms" heading="{{::room.title}}"  select="action.selectRoom(room)"></tab>-->
+<!--<tab ng-repeat="room in rooms" heading="{{::room.title}}"  select="action.selectRoom(room)"></tab>-->
+<!--<tab ng-repeat="room in rooms" heading="{{::room.title}}"  select="action.selectRoom(room)"></tab>-->
+<!--</tabset>-->
+<div class="tabs-bar">
+    <div class="tabs-wp" >
+        <div class="tabs-bd">
+            <a class="tab" ng-repeat="room in rooms"  ng-click="action.selectRoom(room)" ng-class="{'active':currentRoom === room}">
+                <div class="tab-inner">{{::room.title}}</div>
+            </a>
+        </div>
+        <!--<a class="tab tab-more text-muted"><i class="glyphicon glyphicon-chevron-down"></i></a>-->
+    </div>
+</div>
+<!--
+<div class="pos-rlt h-full" ng-swipe-right="action.swipeRight($event)" ng-swipe-left="action.swipeLeft($event)">
+    <img image-load="{{scene.imageUrl}}" class="w-full">
+    <i class="glyphicon glyphicon-arrow-up text-2x text-warning dk pos-abt no-bg-i rotate-45"
+       ng-repeat="item in scene.tags"
+       ng-click="action.open($event,item)"
+       relative-location rtop="item.top" rleft="item.left"></i>
+</div>
+-->
+<div class="pos-rlt hide-indicators">
+    <carousel>
+        <slide ng-repeat="slide in slides" active="slide._active">
+            <img image-load="{{slide.imageUrl}}"  class="w-full">
+            <i class="glyphicon glyphicon-arrow-up text-2x text-warning dk pos-abt no-bg-i rotate-45"
+               ng-repeat="item in slide.tags"
+               ng-click="action.open($event,item)"
+               relative-location rtop="item.top" rleft="item.left"></i>
+        </slide>
+    </carousel>
+</div>

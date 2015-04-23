@@ -1,0 +1,33 @@
+{
+  "name": "axe-app",
+  "description": "斧头帮－微信分享",
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.3.15",
+    "angular-route": "1.3.x",
+    "angular-loader": "1.3.x",
+    "angular-animate": "~1.3.x",
+    "angular-sanitize": "~1.3.x",
+    "angular-touch": "~1.3.x",
+    "angular-bootstrap": "~0.12.x",
+    "angular-ui-router": "~0.2.x",
+    "oclazyload": "~0.6.x"
+  },
+  "authors": [
+    "wQiao <Cike456@163.com>"
+  ],
+  "main": "all.min.js",
+  "keywords": [
+    "app"
+  ],
+  "homepage": "www.saisan.cc",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "e2e-tests",
+    "tests"
+  ]
+}
