@@ -3,7 +3,7 @@
 /**
  * 案例竣工实景控制层
  */
-app.controller('DecorationCaseCompletionCtrl', ['$scope','Completions',function($scope,Completions) {
+angular.module('app').controller('DecorationCaseCompletionCtrl', ['$scope','Completions',function($scope,Completions) {
 
     //-- Variable --/
     var self =this;

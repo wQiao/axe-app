@@ -3,7 +3,7 @@
 /**
  * 案例施工计划控制层
  */
-app.controller('DecorationCasePlanCtrl', ['$scope','Plans',function($scope,Plans) {
+angular.module('app').controller('DecorationCasePlanCtrl', ['$scope','Plans',function($scope,Plans) {
 
     //--- Variable ---/
     var ctrl = this;

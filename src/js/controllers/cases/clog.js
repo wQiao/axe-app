@@ -3,7 +3,7 @@
 /**
  * 案例设计方案控制层
  */
-app.controller('DecorationCaseCLogCtrl', ['$scope','CLogs','$stateParams',function($scope, CLogs,$stateParams) {
+angular.module('app').controller('DecorationCaseCLogCtrl', ['$scope','CLogs','$stateParams',function($scope, CLogs,$stateParams) {
 
     // -- Variable ----//
     var ctrl = this;

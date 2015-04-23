@@ -1,4 +1,4 @@
-app.directive('imageLoad',[function(){
+angular.module('app').directive('imageLoad',[function(){
     return {
         restrict: 'A',
         terminal:true,

@@ -1,7 +1,9 @@
 /**
  * 计算相对位置（父节点）
  */
-app.directive('relativeLocation',['$timeout',function($timeout){
+angular.module('app')
+
+.directive('relativeLocation',['$timeout',function($timeout){
     return {
         restrict: 'A',
         scope:{

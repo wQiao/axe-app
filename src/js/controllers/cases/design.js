@@ -3,7 +3,7 @@
 /**
  * 案例设计方案控制层
  */
-app.controller('DecorationCaseDesignCtrl', ['$scope','Designs',function($scope,Designs) {
+angular.module('app').controller('DecorationCaseDesignCtrl', ['$scope','Designs',function($scope,Designs) {
     
     $scope.data=[];
 

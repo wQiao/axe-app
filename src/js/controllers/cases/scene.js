@@ -3,7 +3,7 @@
 /**
  * 案例施工场景控制层
  */
-app.controller('DecorationCaseSceneCtrl', ['$scope', 'SceneRooms', 'Scenes', '$q', '$modal', function ($scope, SceneRooms, Scenes, $q, $modal) {
+angular.module('app').controller('DecorationCaseSceneCtrl', ['$scope', 'SceneRooms', 'Scenes', '$q', '$modal', function ($scope, SceneRooms, Scenes, $q, $modal) {
     // -- Variable --/
     $scope.currentRoom = null;
 

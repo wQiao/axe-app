@@ -3,7 +3,7 @@
 /**
  * 案例 预算 控制层
  */
-app.controller('DecorationCaseBudgetCtrl', ['$scope','Budgets',function($scope,Budgets) {
+angular.module('app').controller('DecorationCaseBudgetCtrl', ['$scope','Budgets',function($scope,Budgets) {
     
     //-- Variable --/
     var ctrl = this;

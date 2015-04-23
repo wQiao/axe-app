@@ -2,7 +2,7 @@
 /**
  * 案例 预算材料 控制层
  */
-app.controller('DecorationCaseMaterialCtrl',['$scope','BudgetMaterials',function($scope,BudgetMaterials) {
+angular.module('app').controller('DecorationCaseMaterialCtrl',['$scope','BudgetMaterials',function($scope,BudgetMaterials) {
     
     //-- Variable ---/
     var ctrl =this;
