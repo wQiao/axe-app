@@ -28,7 +28,9 @@ angular.module('app').run(['$rootScope','$state','$stateParams',function($rootSc
         template : '<section ui-view></section>',
         resolve : {
             deps : ['$ocLazyLoad',function($ocLazyLoad) {
-               return $ocLazyLoad.load('js/controllers/cases/view.js');
+                if(app.ocLazyLoad){
+                    return $ocLazyLoad.load('js/controllers/cases/view.js');
+                }
             }],
             promiseInfo:['DecorationCases','$stateParams',function(DecorationCases,$stateParams){
                 infoP = DecorationCases.getData({caseId:$stateParams.caseId}).$promise;
@@ -50,12 +52,18 @@ angular.module('app').run(['$rootScope','$state','$stateParams',function($rootSc
         templateProvider:['$templateFactory',function ($templateFactory) {
             return infoP.then(function(result){
                 var caseInfo = result.data;
-                return $templateFactory.fromUrl(caseInfo.typeCode === 2 ? 'tpl/cases/info.jx.html':'tpl/cases/info.html');
+                return $templateFactory.fromUrl(caseInfo.typeCode === 1 ? 'tpl/cases/info.html':caseInfo.typeCode === 2?'tpl/cases/info.jx.html':'tpl/cases/info.zx.html');
             });
         }],
         resolve:{
-            deps: ['$ocLazyLoad',function($ocLazyLoad) {
-               return $ocLazyLoad.load(['js/controllers/cases/info.js']);
+            deps: ['$ocLazyLoad','promiseInfo',function($ocLazyLoad,promiseInfo) {
+                if(app.ocLazyLoad){
+                    var paths=['js/controllers/cases/info.js'];
+                    if(promiseInfo.typeCode ==3){
+                        paths.push('js/controllers/cases/plan.js')
+                    }
+                    return $ocLazyLoad.load(paths);
+                }
             }]
         }
     })
@@ -66,7 +74,9 @@ angular.module('app').run(['$rootScope','$state','$stateParams',function($rootSc
         controller:'DecorationCaseDesignCtrl',
         resolve:{
             deps: ['$ocLazyLoad',function($ocLazyLoad) {
-               return $ocLazyLoad.load(['js/controllers/cases/design.js']);
+                if(app.ocLazyLoad) {
+                    return $ocLazyLoad.load(['js/controllers/cases/design.js']);
+                }
             }]
         }
     })
@@ -77,7 +87,9 @@ angular.module('app').run(['$rootScope','$state','$stateParams',function($rootSc
         controller:'DecorationCasePlanCtrl',
         resolve:{
             deps: ['$ocLazyLoad',function($ocLazyLoad) {
-               return $ocLazyLoad.load('js/controllers/cases/plan.js');
+                if(app.ocLazyLoad) {
+                    return $ocLazyLoad.load('js/controllers/cases/plan.js');
+                }
             }]
         }
     })
@@ -88,7 +100,9 @@ angular.module('app').run(['$rootScope','$state','$stateParams',function($rootSc
         controller:'DecorationCaseCLogCtrl',
         resolve:{
             deps: ['$ocLazyLoad',function($ocLazyLoad) {
-               return $ocLazyLoad.load(['js/controllers/cases/clog.js']);
+                if(app.ocLazyLoad) {
+                    return $ocLazyLoad.load(['js/controllers/cases/clog.js']);
+                }
             }]
         }
     })
@@ -99,7 +113,9 @@ angular.module('app').run(['$rootScope','$state','$stateParams',function($rootSc
         controller:'DecorationCaseSceneCtrl',
         resolve:{
             deps: ['$ocLazyLoad',function($ocLazyLoad) {
-               return $ocLazyLoad.load(['js/controllers/cases/scene.js']);
+                if(app.ocLazyLoad) {
+                    return $ocLazyLoad.load(['js/controllers/cases/scene.js']);
+                }
             }]
         }
     })
@@ -110,7 +126,9 @@ angular.module('app').run(['$rootScope','$state','$stateParams',function($rootSc
         controller:'DecorationCaseBudgetCtrl',
         resolve:{
             deps: ['$ocLazyLoad',function($ocLazyLoad) {
-               return $ocLazyLoad.load(['js/controllers/cases/budget.js']);
+                if(app.ocLazyLoad) {
+                    return $ocLazyLoad.load(['js/controllers/cases/budget.js']);
+                }
             }]
         }
     })
@@ -121,7 +139,9 @@ angular.module('app').run(['$rootScope','$state','$stateParams',function($rootSc
         data:{title:'材料预算',showNav:true},
         resolve:{
             deps: ['$ocLazyLoad',function($ocLazyLoad) {
-               return $ocLazyLoad.load(['js/controllers/cases/material.js']);
+                if(app.ocLazyLoad) {
+                    return $ocLazyLoad.load(['js/controllers/cases/material.js']);
+                }
             }]
         }
     })
@@ -132,7 +152,9 @@ angular.module('app').run(['$rootScope','$state','$stateParams',function($rootSc
         controller:'DecorationCaseCompletionCtrl',
         resolve:{
             deps: ['$ocLazyLoad',function($ocLazyLoad) {
-               return $ocLazyLoad.load(['js/controllers/cases/completion.js']);
+                if(app.ocLazyLoad) {
+                    return $ocLazyLoad.load(['js/controllers/cases/completion.js']);
+                }
             }]
         }
     })

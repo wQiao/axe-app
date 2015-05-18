@@ -59,7 +59,9 @@ angular.module('app').controller('DecorationCaseSceneCtrl', ['$scope', 'SceneRoo
                 size: 'sm',
                 resolve: {
                     deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load(['js/controllers/cases/acceptance.js']);
+                        if(app.ocLazyLoad) {
+                            return $ocLazyLoad.load(['js/controllers/cases/acceptance.js']);
+                        }
                     }],
                     params: function () {
                         return {

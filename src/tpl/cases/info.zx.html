@@ -1,0 +1,54 @@
+<section class="h-full cases-zx">
+    <section class="cases-banner container">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="banner-logo r-2x text-center font-bold">工程铭牌</div>
+                <div class="banner-title">{{::caseInfo.title}}</div>
+                <div>开工日期：{{::caseInfo.startDate | date :'yyyy.MM.dd'}}</div>
+                <div>竣工日期：{{::caseInfo.endDate| date :'yyyy.MM.dd'}}</div>
+                <div>工程状态：<span ng-bind="::caseInfo.constructionStatusName"  class="text-warning"></span></div>
+            </div>
+            <div class="col-xs-6 text-center">
+                <div class="countdown center-block circle">
+                    <div ng-bind="::caseInfo.surplusDay" class="text-white countdown-content circle"></div>
+                    <div class="countdown-label">倒计时</div>
+                </div>
+                <div class="statics">
+                    <div class="inline" style="margin-right:5.3vmin;">
+                        <i class="icon icon-user"></i>
+                        <div>{{::caseInfo.totalView}}</div>
+                    </div>
+                    <div class="inline">
+                        <i class="icon icon-zhan"></i>
+                        <div>{{::caseInfo.totalEnjoy}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <ng-include src="'tpl/cases/info.base.html'"></ng-include>
+    <section ng-controller="DecorationCasePlanCtrl" class="list-plan">
+        <div class="list-plan-item" ng-repeat="plan in plans" >
+            <div class="plan-title hbox">
+                <div class="plan-title-sign col v-middle">
+                    <i class="icon icon-s-{{::$index+1}} text-info"></i>
+                </div>
+                <div class="col v-middle" style="padding-left: 3.7vmin;">
+                    {{::$index + 1}} {{::plan.title}}
+                    <small>工期<span ng-bind="::plan.period"></span>天 时间占比<span ng-bind="::plan._percent"></span>%</small>
+                </div>
+            </div>
+            <div class="w-full">
+                <div  class="w-full text-center">
+                    <span class="sub-title text-white r-2x">{{::plan.logPubdate | date:'yyyy.MM.dd'}} 共<span ng-bind="::plan.logCount"></span>篇日志</span>
+                </div>
+                <div class="v-col-xs-5" ng-if="plan.images.length > 0" style="margin: 3vw 0;overflow: hidden;"  >
+                    <div ng-repeat="photo in plan.images track by $index" class="v-col-xs-item" ng-click="action.viewLogs(plan)">
+                        <img image-load="{{::photo}}" contain="true" equal-width="true">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+</section>

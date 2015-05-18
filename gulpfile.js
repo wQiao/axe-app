@@ -38,7 +38,7 @@ gulp.task('scripts', function() {
     // Minify and copy all JavaScript (except vendor scripts)
     // with sourcemaps all the way down
     return gulp.src(paths.scripts)
-        .pipe(concat('all.js'))
+        .pipe(concat('all.js',{newLine: ';'}))
         .pipe(gulp.dest('./dist'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
@@ -63,7 +63,7 @@ gulp.task('tpls', function() {
             moduleName: "ui.axe.tpls",
             prefix: "tpl/"
         }))
-        .pipe(concat("ui-axe-tpls.min.js"))
+        .pipe(concat("ui-axe-tpls.min.js",{newLine: ';'}))
         .pipe(uglify())
         .pipe(gulp.dest('./dist'));
 });
